@@ -1,0 +1,38 @@
+Que 1 Print Anagrams Together (Medium GFG)
+class Solution{
+  public:
+    vector<vector<string> > Anagrams(vector<string>& v) {
+        //code here
+        //make a duplicate v and store sorted strings
+        vector<string> temp;
+        vector<vector<string>> res;
+        for(int i=0;i<v.size();i++){
+            string t=v[i];
+            sort(t.begin(),t.end());
+            temp.push_back(t);
+            
+        }
+        //store unique strings in unique 
+      //  vector<string> unique;
+      //  unique.push_back()
+      set<string> s;
+     // return res;
+        for(int i=0;i<temp.size();i++)
+        {
+            s.insert(temp[i]);
+        }
+        auto it=s.begin();
+        for(int i=0;i<s.size();i++){
+            vector<string> x;
+            for(int j=0;j<temp.size();j++){
+               // int ind= it-s.begin();
+               string k =*it;
+                if(temp[j]==k)
+                x.push_back(v[j]);
+            }
+            res.push_back(x);
+            it++;
+        }
+        return res;
+    }
+};
